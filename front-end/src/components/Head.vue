@@ -1,24 +1,50 @@
 <template>
-    <!-- <v-container fluid> -->
-        <header class="global-header sticky">
-            <a class="logo" href="/">
-                <img class="main-logo" src="https://www.proximity.cn/media/1011/prox_primary_rw.png" alt="">
-            </a>
-            <nav class="nav-standard">
-                <ul>
-                    <li>{{ $vuetify.t('$vuetify.menu.about') }}</li>
-                    <li>{{ $vuetify.t('$vuetify.menu.work') }}</li>
-                    <li>{{ $vuetify.t('$vuetify.menu.latest') }}</li>
-                    <li>{{ $vuetify.t('$vuetify.menu.peopleCareers') }}</li>
-                    <li>{{ $vuetify.t('$vuetify.menu.contact') }}</li>
-                </ul>
-            </nav>
-        </header>
-    <!-- </v-container> -->
+  <header class="global-header blue">
+      <a class="logo" href="/">
+          <img class="main-logo" src="https://www.proximity.cn/media/1011/prox_primary_rw.png" alt="">
+      </a>
+      <nav class="nav-standard">
+          <ul>
+              <li><a href="">{{ $vuetify.t('$vuetify.menu.about') }}</a></li>
+              <li><a href="">{{ $vuetify.t('$vuetify.menu.work') }}</a></li>
+              <li><a href="">{{ $vuetify.t('$vuetify.menu.latest') }}</a></li>
+              <li><a href="">{{ $vuetify.t('$vuetify.menu.peopleCareers') }}</a></li>
+              <li><a href="">{{ $vuetify.t('$vuetify.menu.contact') }}</a></li>
+          </ul>
+      </nav>
+
+      <v-menu transition="slide-x-transition" bottom right>
+        <v-btn
+          slot="activator"
+          class="deep-orange"
+          color="primary"
+          dark
+        >
+          Slide X Transition
+        </v-btn>
+        <v-list>
+          <v-list-tile
+            v-for="(item, i) in items"
+            :key="i"
+            @click="callback"
+          >
+            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+          </v-list-tile>
+        </v-list>
+      </v-menu>
+  </header>
 </template>
 <script>
 export default {
-  name: "head"
+  name: "head",
+  data: () => ({
+    items: [
+      { title: 'Click Me' },
+      { title: 'Click Me' },
+      { title: 'Click Me' },
+      { title: 'Click Me 2' }
+    ]
+  })
 };
 </script>
 
@@ -30,8 +56,8 @@ export default {
   display: flex;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  position: absolute;
-  z-index: 2;
+  position: relative;
+  // z-index: 2;
   color: #fff;
   top: 0;
   left: 0;
@@ -55,6 +81,15 @@ export default {
     }
   }
   .nav-standard {
+    display: flex;
+    align-items: center;
+    a:hover {
+      color: #3b2143 !important;
+    }
+    a {
+      color: #fff;
+      transition: all 0.5s ease;
+    }
     ul {
       list-style: none;
       padding: 0;

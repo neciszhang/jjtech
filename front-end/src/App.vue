@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-navigation-drawer
+    <!-- <v-navigation-drawer
       persistent
       :mini-variant="miniVariant"
       :clipped="clipped"
@@ -23,12 +23,12 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
-    </v-navigation-drawer>
-    <v-toolbar
+    </v-navigation-drawer> -->
+    <!-- <v-toolbar
       app
       :clipped-left="clipped"
-    >
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+    > -->
+      <!-- <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon v-text="miniVariant ? icon1 : icon2"></v-icon>
       </v-btn>
@@ -37,17 +37,17 @@
       </v-btn>
       <v-btn icon @click.stop="fixed = !fixed">
         <v-icon v-text="icon2"></v-icon>
-      </v-btn>
+      </v-btn> -->
       <!-- <v-toolbar-title v-text="title"></v-toolbar-title> -->
-      <v-spacer></v-spacer>
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
+      <!-- <v-spacer></v-spacer> -->
+      <!-- <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon v-text="icon3"></v-icon>
       </v-btn>
-    </v-toolbar>
-    <v-content>
+    </v-toolbar> -->
+    <v-content fluid>
       <router-view/>
     </v-content>
-    <v-navigation-drawer
+    <!-- <v-navigation-drawer
       temporary
       :right="right"
       v-model="rightDrawer"
@@ -64,7 +64,7 @@
           <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
         </v-list-tile>
       </v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer> -->
     <v-footer :fixed="fixed" app>
       <span>&copy; 2017</span>
     </v-footer>
@@ -105,6 +105,7 @@ export default {
 a {
   line-height: 22px;
   color: #3b2143;
+  text-decoration: none;
 }
 ul li {
     list-style: none;
@@ -112,6 +113,10 @@ ul li {
 html {
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
+    font-size: 100%;
+}
+body{
+  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
 </style>
 
