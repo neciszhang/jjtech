@@ -72,27 +72,46 @@
 </template>
 
 <script>
-
 export default {
-  name: 'App',
-  data () {
+  name: "App",
+  data() {
     return {
       clipped: false,
       drawer: true,
       fixed: false,
-      items: [{
-        icon: '$vuetify.icons.menu',
-        title: 'Inspire'
-      }],
+      items: [
+        {
+          icon: "$vuetify.icons.menu",
+          title: "Inspire"
+        }
+      ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
       // title: 'Vuetify.js',
-      icon1:"$vuetify.icons.expand",
-      icon2:"$vuetify.icons.edit",
-      icon3:"$vuetify.icons.menu",
-      icon4:"$vuetify.icons.cancel"
-    }
+      icon1: "$vuetify.icons.expand",
+      icon2: "$vuetify.icons.edit",
+      icon3: "$vuetify.icons.menu",
+      icon4: "$vuetify.icons.cancel"
+    };
   }
-}
+};
 </script>
+<style lang="scss">
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  line-height: 22px;
+  color: #3b2143;
+}
+ul li {
+    list-style: none;
+}
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+}
+</style>
+
