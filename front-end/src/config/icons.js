@@ -22,6 +22,7 @@ const MY_ICONS = {
     'radioOn': '',
     'radioOff': '',
     'edit': 'fa-edit',
+    'globe': 'fa-globe',
     // 'web':'fa-internet-explorer',
     // 'remove':'fa-eraser'
   }

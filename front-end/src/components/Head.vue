@@ -1,7 +1,7 @@
 <template>
   <header class="global-header blue">
       <a class="logo" href="/">
-          <img class="main-logo" src="https://www.proximity.cn/media/1011/prox_primary_rw.png" alt="">
+          <!-- <img class="main-logo" src="https://www.proximity.cn/media/1011/prox_primary_rw.png" alt=""> -->
       </a>
       <nav class="nav-standard">
           <ul>
@@ -14,13 +14,11 @@
       </nav>
 
       <v-menu transition="slide-x-transition" bottom right>
-        <v-btn
-          slot="activator"
+        <v-btn icon slot="activator"
           class="deep-orange"
-          color="primary"
-          dark
-        >
-          Slide X Transition
+          color="accent"
+          dark>
+            <v-icon v-text="$vuetify.icons.globe"></v-icon>
         </v-btn>
         <v-list>
           <v-list-tile
@@ -32,19 +30,24 @@
           </v-list-tile>
         </v-list>
       </v-menu>
+
+
   </header>
 </template>
 <script>
 export default {
-  name: "head",
+  name: "headCommon",
   data: () => ({
     items: [
-      { title: 'Click Me' },
-      { title: 'Click Me' },
-      { title: 'Click Me' },
-      { title: 'Click Me 2' }
+      { title: "Click Me" },
+      { title: "Click Me" },
+      { title: "Click Me" },
+      { title: "Click Me 2" }
     ]
-  })
+  }),
+  methods: {
+    callback() {}
+  }
 };
 </script>
 
