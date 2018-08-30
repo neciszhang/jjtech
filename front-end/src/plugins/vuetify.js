@@ -1,9 +1,9 @@
 import '@fortawesome/fontawesome-free/css/all.css'
-import VueI18n from 'vue-i18n'
 import Vue from 'vue'
 import {
   Vuetify,
   VApp,
+  VMenu,
   VNavigationDrawer,
   VFooter,
   VList,
@@ -15,18 +15,13 @@ import {
 } from 'vuetify'
 import 'vuetify/src/stylus/app.styl'
 import MY_ICONS from '../config/icons'
-import messages from '../locale/message'
-Vue.use(VueI18n);
-console.log(messages);
-
-const i18n = new VueI18n({
-  locale: 'zh-CN', // set locale
-  messages, // set locale messages
-})
+import zh from '../locale/zh'
+import en from '../locale/en'
 
 Vue.use(Vuetify, {
   components: {
     VApp,
+    VMenu,
     VNavigationDrawer,
     VFooter,
     VList,
@@ -47,8 +42,9 @@ Vue.use(Vuetify, {
   },
   iconfont: 'fa',
   icons: MY_ICONS,
-  lang: {
-    t: (key, ...params) => i18n.t(key, params)
+  lang:{
+    locales: { zh, en },
+    current: 'zh'
   },
   rtl: false
 });

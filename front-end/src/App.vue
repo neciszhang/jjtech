@@ -108,15 +108,30 @@ a {
   text-decoration: none;
 }
 ul li {
-    list-style: none;
+  list-style: none;
 }
 html {
-    line-height: 1.15;
-    -webkit-text-size-adjust: 100%;
-    font-size: 100%;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  font-size: 100%;
 }
-body{
-  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+    "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei",
+    sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 400;
+}
+h1 {
+  font-size: 54px;
+  letter-spacing: 0.5px;
+  line-height: 70px;
+  text-align: center;
 }
 </style>
 

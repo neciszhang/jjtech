@@ -1,6 +1,11 @@
 <template>
   <v-content fluid>
     <head-common/>
+    <v-layout class="banner blue">
+      <h1>
+        我们为品牌找到更有价值<br/>的消费者
+      </h1>
+    </v-layout>
     <v-slide-y-transition mode="out-in">
       <v-layout column align-center>
         <img src="@/assets/logo.png" alt="Vuetify.js" class="mb-5">
@@ -36,20 +41,18 @@ export default {
 
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+<style scoped lang="scss">
+
+.banner{
+  height: 722px;
+  position: relative;
+  h1 {
+    color: #fff;
+    left: calc(50% - 315px);
+    margin: auto;
+    position: absolute;
+    top: calc(50% - 70px);
+    width: 630px;
+  }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <header class="global-header blue">
+  <header class="global-header sticky">
       <a class="logo" href="/">
-          <!-- <img class="main-logo" src="https://www.proximity.cn/media/1011/prox_primary_rw.png" alt=""> -->
+          <img class="main-logo" src="https://www.proximity.cn/media/1011/prox_primary_rw.png" alt="">
       </a>
       <nav class="nav-standard">
           <ul>
@@ -10,26 +10,20 @@
               <li><a href="">{{ $vuetify.t('$vuetify.menu.latest') }}</a></li>
               <li><a href="">{{ $vuetify.t('$vuetify.menu.peopleCareers') }}</a></li>
               <li><a href="">{{ $vuetify.t('$vuetify.menu.contact') }}</a></li>
+              <li>
+                <v-menu transition="slide-x-transition" bottom right class="local-language">
+                  <v-btn icon slot="activator" class="deep-orange" color="accent" dark>
+                      <v-icon v-text="$vuetify.icons.globe"></v-icon>
+                  </v-btn>
+                  <v-list>
+                    <v-list-tile v-for="(item, i) in items" :key="i" @click="changeLocales(item)">
+                      <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                    </v-list-tile>
+                  </v-list>
+                </v-menu>
+              </li>
           </ul>
       </nav>
-
-      <v-menu transition="slide-x-transition" bottom right>
-        <v-btn icon slot="activator"
-          class="deep-orange"
-          color="accent"
-          dark>
-            <v-icon v-text="$vuetify.icons.globe"></v-icon>
-        </v-btn>
-        <v-list>
-          <v-list-tile
-            v-for="(item, i) in items"
-            :key="i"
-            @click="callback"
-          >
-            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-          </v-list-tile>
-        </v-list>
-      </v-menu>
 
 
   </header>
@@ -39,14 +33,15 @@ export default {
   name: "headCommon",
   data: () => ({
     items: [
-      { title: "Click Me" },
-      { title: "Click Me" },
-      { title: "Click Me" },
-      { title: "Click Me 2" }
+      { title: "ZH",language:"zh" },
+      { title: "EN",language:"en" },
+      { title: "Japan",language:"japan" },
     ]
   }),
   methods: {
-    callback() {}
+    changeLocales(item) {
+      this.$vuetify.lang.current = item.language;
+    }
   }
 };
 </script>
@@ -60,13 +55,14 @@ export default {
   -ms-flex-pack: justify;
   justify-content: space-between;
   position: relative;
-  // z-index: 2;
+  z-index: 2;
   color: #fff;
   top: 0;
   left: 0;
   right: 0;
   &.sticky {
     position: fixed;
+    background: transparent;
   }
   .logo {
     overflow: hidden;
@@ -109,6 +105,15 @@ export default {
     ul li {
       margin-left: 25px;
     }
+  }
+
+  .local-language {
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 43px;
+    width: 7%;
+    z-index: 2;
   }
 }
 </style>
