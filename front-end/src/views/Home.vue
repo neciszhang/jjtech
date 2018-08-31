@@ -2,9 +2,14 @@
   <v-content fluid>
     <head-common/>
     <v-layout class="banner blue">
-      <h1>
-        我们为品牌找到更有价值<br/>的消费者
-      </h1>
+      <h1 v-html="$vuetify.t('$vuetify.home.banner')"></h1>
+      <v-btn class="arrow" icon slot="activator" dark>
+        <v-icon v-text="$vuetify.icons.arrowDown"></v-icon>
+      </v-btn>
+    </v-layout>
+    <v-layout id="howWeDoIt">
+      <h2 v-text="$vuetify.t('$vuetify.home.title1')"></h2>
+      <h3 v-html="$vuetify.t('$vuetify.home.desc1')"></h3>
     </v-layout>
     <v-slide-y-transition mode="out-in">
       <v-layout column align-center>
@@ -26,14 +31,13 @@
 </template>
 
 <script>
-
-import HeadCommon from '../components/Head.vue'
+import HeadCommon from "../components/Head.vue";
 export default {
   name: "home",
   data() {
     return {};
   },
-  components:{
+  components: {
     HeadCommon
   }
 };
@@ -42,8 +46,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
-.banner{
+.banner {
   height: 722px;
   position: relative;
   h1 {
@@ -53,6 +56,16 @@ export default {
     position: absolute;
     top: calc(50% - 70px);
     width: 630px;
+  }
+  .arrow{
+    bottom: 9%;
+    position: absolute;
+    left: calc(50% - 30px);
+    cursor: pointer;
+    animation-name: k;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
   }
 }
 </style>
