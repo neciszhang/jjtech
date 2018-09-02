@@ -65,13 +65,12 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer> -->
-    <v-footer :fixed="fixed" app>
-      <span>&copy; 2017</span>
-    </v-footer>
+    <foot-common></foot-common>
   </v-app>
 </template>
 
 <script>
+import FootCommon from "./components/Foot.vue";
 export default {
   name: "App",
   data() {
@@ -94,6 +93,9 @@ export default {
       icon3: "$vuetify.icons.menu",
       icon4: "$vuetify.icons.cancel"
     };
+  },
+  components: {
+    FootCommon
   }
 };
 </script>
@@ -116,6 +118,7 @@ html {
   font-size: 100%;
 }
 body {
+  box-sizing: content-box;
   font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC",
     "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei",
     sans-serif;
@@ -133,7 +136,84 @@ h1 {
   line-height: 70px;
   text-align: center;
 }
-
+h2 {
+  color: red;
+  text-transform: uppercase;
+}
+h2 {
+  color: #e30613;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 2px;
+  margin: 0;
+  text-align: center;
+}
+h3,
+h3 p {
+  font-family: Avenir Book;
+  font-size: 36px;
+  line-height: 46px;
+}
+h3 {
+  color: #3b2143;
+  margin: 0 auto 20px;
+  text-align: center;
+}
+p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #3b2143;
+}
+h5 {
+  color: #3b2143;
+  font-size: 26px;
+  letter-spacing: 1px;
+  line-height: 36px;
+  margin: 20px 0;
+}
+img {
+  border-style: none;
+}
+.wrapper {
+  margin: auto;
+  padding: 0 6%;
+}
+.text-center {
+  text-align: center;
+}
+.image--sizes-figures {
+  margin: 0;
+}
+.image--sizes-figures-boxmodule {
+  display: block;
+  position: relative;
+  margin: 0;
+}
+.main {
+  margin-top: 150px;
+  padding: 0;
+}
+.variant--color {
+  background: linear-gradient(270deg, #a5ff00, #009dff, #ff43b2, #ffd800);
+  background-color: #ffd800;
+  background-size: 1000%;
+  background-repeat: repeat;
+  color: #fff;
+  animation: j 30s linear infinite forwards;
+}
+ul {
+    padding: 0;
+}
+@keyframes k {
+  0% {
+    transform: translateY(0);
+    height: 20px;
+  }
+  100% {
+    transform: translateY(10px);
+    height: 20px;
+  }
+}
 @-webkit-keyframes k {
   0% {
     transform: translateY(0);
@@ -142,6 +222,48 @@ h1 {
   100% {
     transform: translateY(10px);
     height: 20px;
+  }
+}
+@keyframes j {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+@-webkit-keyframes j {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+@keyframes n {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 1em, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+@-webkit-keyframes n {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 1em, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(0);
   }
 }
 </style>

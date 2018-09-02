@@ -1,15 +1,15 @@
 <template>
-  <header class="global-header sticky">
-      <a class="logo" href="/">
+  <header class="global-header" v-bind:class="{ sticky: isSticky }">
+      <a class="logo" href="#/">
           <img class="main-logo" src="https://www.proximity.cn/media/1011/prox_primary_rw.png" alt="">
       </a>
       <nav class="nav-standard">
           <ul>
-              <li><a href="">{{ $vuetify.t('$vuetify.menu.about') }}</a></li>
-              <li><a href="">{{ $vuetify.t('$vuetify.menu.work') }}</a></li>
-              <li><a href="">{{ $vuetify.t('$vuetify.menu.latest') }}</a></li>
-              <li><a href="">{{ $vuetify.t('$vuetify.menu.peopleCareers') }}</a></li>
-              <li><a href="">{{ $vuetify.t('$vuetify.menu.contact') }}</a></li>
+              <li><a href="#/about" v-bind:class="{active:activeMenu=='1'}">{{ $vuetify.t('$vuetify.menu.about') }}</a></li>
+              <li><a href="#/work" v-bind:class="{active:activeMenu=='2'}">{{ $vuetify.t('$vuetify.menu.work') }}</a></li>
+              <li><a href="#/latest" v-bind:class="{active:activeMenu=='3'}">{{ $vuetify.t('$vuetify.menu.latest') }}</a></li>
+              <li><a href="#/people-careers" v-bind:class="{active:activeMenu=='4'}">{{ $vuetify.t('$vuetify.menu.peopleCareers') }}</a></li>
+              <li><a href="#/contact" v-bind:class="{active:activeMenu=='5'}">{{ $vuetify.t('$vuetify.menu.contact') }}</a></li>
               <li>
                 <v-menu transition="slide-x-transition" bottom right class="local-language">
                   <v-btn icon slot="activator" class="deep-orange" color="accent" dark>
@@ -33,11 +33,20 @@ export default {
   name: "headCommon",
   data: () => ({
     items: [
-      { title: "ZH",language:"zh" },
-      { title: "EN",language:"en" },
-      { title: "Japan",language:"japan" },
+      { title: "ZH", language: "zh" },
+      { title: "EN", language: "en" },
+      { title: "Japan", language: "japan" }
     ]
   }),
+  props: {
+    isSticky: {
+      type:Boolean,
+      default:true
+    },
+    activeMenu:{
+      type:Number
+    }
+  },
   methods: {
     changeLocales(item) {
       this.$vuetify.lang.current = item.language;
@@ -60,9 +69,19 @@ export default {
   top: 0;
   left: 0;
   right: 0;
+  background: transparent;
+  position: fixed;
   &.sticky {
-    position: fixed;
-    background: transparent;
+    // position: fixed;
+    background: #fafafa;
+    .nav-standard a:hover {
+      color: #e30613 !important;
+    }
+    .nav-standard a {
+      // color: #fff;
+      color: rgb(59, 33, 67);
+      transition: all 0.5s ease;
+    }
   }
   .logo {
     overflow: hidden;
@@ -85,8 +104,12 @@ export default {
     a:hover {
       color: #3b2143 !important;
     }
+    a.active {
+      font-weight: 700;
+    }
     a {
       color: #fff;
+      // color: rgb(59, 33, 67);
       transition: all 0.5s ease;
     }
     ul {
